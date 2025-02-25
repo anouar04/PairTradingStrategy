@@ -277,7 +277,7 @@ def update_zscore():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(update_zscore, 'interval', minutes=2)
+scheduler.add_job(update_zscore, 'interval', minutes=1)
 scheduler.start()
 
 
