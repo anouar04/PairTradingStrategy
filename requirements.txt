@@ -1,0 +1,9 @@
+Flask
+pymongo
+flask
+ccxt 
+pandas 
+numpy 
+statsmodels 
+apscheduler 
+requests

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Pair Trading Strategy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            color: #e0e0e0;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #ccc;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #444;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+        }
+        button {
+            background-color: #6200ea;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3700b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+        }
+        .result h2 {
+            margin-top: 0;
+            color: #e0e0e0;
+        }
+        .result p {
+            margin: 10px 0;
+            color: #ccc;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Pair Trading Strategy</h1>
+        <form id="settings-form">
+            <label for="symbol1">Symbol 1:</label>
+            <input type="text" id="symbol1" name="symbol1" value="{{ response.symbol1 }}" placeholder="e.g., DOGE/USDT">
+            
+            <label for="symbol2">Symbol 2:</label>
+            <input type="text" id="symbol2" name="symbol2" value="{{ response.symbol2 }}" placeholder="e.g., XLM/USDT">
+            
+            <label for="timeframe">Timeframe:</label>
+            <input type="text" id="timeframe" name="timeframe" value="{{ response.timeframe }}" placeholder="e.g., 1m, 5m, 1h">
+            
+            <label for="days">Number of Days:</label>
+            <input type="number" id="days" name="days" value="{{ response.days }}" placeholder="e.g., 5, 10, 30">
+            
+            <button type="submit">Update</button>
+        </form>
+
+        <!-- Display errors if any -->
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <div class="result">
+            <h2>Results : 
+                Z-score > 2 : Sell Symbol 1
+                Z-score < -2 : Buy Symbol 1
+            </h2>
+            <p><strong>Cointegration p-value:</strong> {{ response.cointegration_pvalue|round(4) }}</p>
+        
+            <!-- Display the Plotly interactive chart -->
+            <div id="plotly-chart">
+                {{ response.plot | safe }}
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.15.0/plotly.min.js"></script>
+    <script>
+
+// Store all accumulated Z-scores
+let allZScores = [];  // Will store all Z-scores
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
