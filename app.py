@@ -282,5 +282,7 @@ scheduler.start()
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 10000))  # Utilise le port de Render ou 10000 par défaut
+    if not app.debug or os.environ.get("WERKZEUG_RUN_MAIN") == "true":
+        scheduler.start()
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
