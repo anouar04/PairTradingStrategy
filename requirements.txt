@@ -8,3 +8,6 @@ statsmodels
 apscheduler 
 requests
 gunicorn
+
+matplotlib
+plotly
