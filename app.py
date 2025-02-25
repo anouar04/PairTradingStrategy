@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import base64
 import io
 import plotly.graph_objs as go
-
+import os
 # Set Matplotlib to use a non-GUI backend
 plt.switch_backend('Agg')
 
